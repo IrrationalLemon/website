@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root{
+    --green:#27ae60;
+    --black:#192a56;
+    --light-color: #666;
+    --light-grey: #F0F0F0;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: none;
+    transition: all .2s linear;
+}
+
+html{
+    font-size: 80.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+header{
+    position: fixed;
+    top:0; left:0; right:0;
+    background: #fff;
+    padding:1rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo{
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+header .navbar a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding:.5rem 1.5rem;
+    color: var(--light-color)
+}
+
+header .navbar a:hover{
+    color: #fff;
+    background: var(--green);
+}
+
+header .icons img {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.slider {
+    position: relative;    /* Важно! */
+    display: flex;
+    aspect-ratio: 16/9;
+    overflow: hidden;      /* Скрываем всё что выходит за границы */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75 hsla(0, 0%, 0%, 0.25);
+    flex: 1;
+    max-width: calc(100% - 100px);
+}
+
+.slider img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    
+    /* Добавьте это: */
+    position: absolute;    /* Накладываем друг на друга */
+    top: 0;
+    left: 0;
+    opacity: 0;            /* Скрываем по умолчанию */
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+.slider img.active {
+    opacity: 1;            /* Показываем активный */
+    z-index: 1;            /* Выше остальных */
+    position: relative;    /* Возвращаем в поток (или оставьте absolute) */
+}
+
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-wrapper {
+    position: relative;
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;           /* Добавляем flex */
+    align-items: center;     /* Центрируем по вертикали */
+    justify-content: center; /* Центрируем содержимое */
+}
+
+.slider-wrapper > div:first-child,
+.slider-wrapper > div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    flex-shrink: 0;
+    z-index: 10;          /* Добавьте! */
+    position: relative;   /* Добавьте! */
+}
+
+.controlls {
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+    z-index: 11;          /* Выше чем у контейнера */
+    position: relative;
+}
+
+
+.slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border-color: #192a56;
+    background-color: #192a56;
+}
+
+.second-block{
+    padding: 5rem;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.second-block h3{
+    text-align: center;
+    font-size: 5.2rem;
+    margin-bottom: 2rem;
+}
+
+.content-info {
+    font-size: 3.6rem;
+    line-height: 1.6;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--black);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+}
+
+.btn:hover{
+    background: var(--green);
+    letter-spacing: .1rem;
+}
+
+.third-block{
+    background-color: var(--light-grey);
+}
+
+.sub-heading{
+    text-align: center;
+    font-size: 5rem;
+    padding-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.grave-image{
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.third-block .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+    gap: 1.5rem;
+}
+
+.third-block .options {
+    background-color: #cacaca;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.menu-layout{
+    display: flex;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.dropdown-layout{
+    vertical-align: middle;
+}
+
+.btn-opt {
+    border-radius: 50%;
+    border: 1px solid #192a56;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.btn-opt:hover {
+    transform: scale(1.1);
+}
+
+.btn-opt.active {
+    border-color: #fff;
+    box-shadow: 0 0 0 3px #192a56, 0 0 10px rgba(0,0,0,0.3);
+}
+
+.karelian{
+    background-image: url('https://stonetorg.com/images/content/granite/round/shadow1.png');
+    object-fit: contain;
+}
+
+.balmoral{
+    background-image: url('https://stonetorg.com/images/content/granite/round/shadow6.png');
+}
+
+.amph{
+    background-image: url('https://stonetorg.com/images/content/granite/round/shadow3.png');
+}
+
+.dymsk{
+    background-image: url('https://stonetorg.com/images/content/granite/round/shadow16.png');
+}
+
+.dropdown{
+    display: inline-block;
+}
+
+.dropdown button{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color:#fff;
+    background: #cacaca;
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+}
+
+.dropdown a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: .8rem 3rem;
+}
+
+.dropdown .content{
+    display: none;
+    background-color: #F0F0F0;
+    position: absolute;
+    min-width: 100px;
+    box-shadow: var(--box-shadow);
+    font-size: 1.7rem;
+}
+
+.dropdown:hover .content{
+    display: block;
+}
+
+.dropdown:hover .content{
+    background-color: #F0F0F0;
+}
+
+.dropdown a:hover {
+    background-color: #cacaca;
+}
+
+.species, .colors {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.colors .btn.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.third-block .box-container .box{
+    margin: 1.5rem;
+    padding: 2.5rem;
+    background: #fff;
+    font-size: 3rem;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
