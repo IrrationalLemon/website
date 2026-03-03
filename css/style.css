@@ -271,6 +271,7 @@ header .icons img {
 }
 
 .dropdown{
+    width: 50%;
     display: inline-block;
 }
 
@@ -367,7 +368,7 @@ header .icons img {
 /* Для мобильных устройств */
 @media (max-width: 768px) {
     html {
-        font-size: 50%; /* Еще меньше для мобильных */
+        font-size: 58%; /* Еще меньше для мобильных */
     }
     
     header .navbar {
@@ -399,99 +400,65 @@ header .icons img {
         height: 80px;
         font-size: 1.2rem;
     }
-    
-    /* Исправляем меню-лейаут */
+
     .menu-layout {
-        flex-direction: column; /* Вертикальное расположение */
-        align-items: center;
+        flex-direction: row; /* Горизонтальное расположение */
+        align-items: flex-start; /* Выравнивание по верхнему краю */
+        justify-content: space-between; /* Распределение пространства между элементами */
+        gap: 15px;
     }
     
     .grave-image {
-        max-width: 100%;
-        margin-bottom: 1rem;
+        width: 40%; /* Уменьшаем изображение */
+        max-width: 200px;
+        margin-bottom: 0;
     }
     
     .dropdown-layout {
-        width: 100%;
+        width: 60%; /* Занимает оставшееся место */
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
+        flex-direction: column; /* Вертикальное расположение кнопок */
+        gap: 5px;
     }
     
     .dropdown {
-        width: auto;
-        min-width: 120px;
+        width: 100%; /* Каждая кнопка на всю ширину */
+        position: relative;
     }
     
     .dropdown button {
         font-size: 1.4rem;
-        padding: 0.6rem 1.5rem;
+        padding: 0.6rem 1rem;
         width: 100%;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
-    /* Улучшаем слайдер для мобильных */
-    .slider-wrapper {
-        flex-wrap: wrap;
+    /* Стили для выпадающего меню */
+    .dropdown .content {
+        position: absolute;
+        left: 0;
+        right: auto;
+        min-width: 200px;
+        z-index: 100;
     }
     
-    .slider {
-        max-width: 100%;
-        order: 1;
-    }
-    
-    .slider-wrapper > div:first-child,
-    .slider-wrapper > div:last-child {
-        order: 2;
-        width: 40px;
-    }
-    
-    .controlls {
-        height: 30px;
-    }
-    
-    .second-block h3 {
-        font-size: 3.2rem;
-    }
-    
-    .content-info {
-        font-size: 2rem;
-        line-height: 1.4;
-    }
-    
-    .sub-heading {
-        font-size: 3.5rem;
-        padding-top: 3rem;
-        margin-bottom: 3rem;
-    }
-    
-    .options {
-        padding: 1rem;
-    }
-    
-    .species, .colors {
-        gap: 0.5rem;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 450px) {
-    html {
-        font-size: 45%;
-    }
-    
-    .btn-opt {
-        width: 60px;
-        height: 60px;
-        font-size: 1rem;
-    }
-    
-    .dropdown {
-        min-width: 100px;
-    }
-    
-    header .navbar a {
-        font-size: 1.3rem;
-        padding: 0.2rem 0.8rem;
+    /* Для очень маленьких экранов */
+    @media (max-width: 500px) {
+        .menu-layout {
+            flex-direction: column; /* Вертикально только на очень маленьких */
+            align-items: center;
+        }
+        
+        .grave-image {
+            width: 80%;
+            max-width: 250px;
+        }
+        
+        .dropdown-layout {
+            width: 100%;
+        }
     }
 }
