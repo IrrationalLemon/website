@@ -270,8 +270,8 @@ header .icons img {
     background-image: url('https://stonetorg.com/images/content/granite/round/shadow16.png');
 }
 
-.dropdown{
-    width: 50%;
+.dropdown {
+    width: 200px;
     display: inline-block;
 }
 
@@ -279,11 +279,15 @@ header .icons img {
     margin-top: 1rem;
     display: inline-block;
     font-size: 1.7rem;
-    color:#fff;
+    color: #fff;
     background: #cacaca;
     border-radius: .5rem;
     cursor: pointer;
     padding: .8rem 3rem;
+    width: 100%; /* Кнопка на всю ширину dropdown */
+    text-align: center; /* Центрируем текст */
+    white-space: nowrap; /* Запрещаем перенос текста */
+    overflow: hidden;
 }
 
 .dropdown a{
@@ -422,7 +426,7 @@ header .icons img {
     }
     
     .dropdown {
-        width: 100%; /* Каждая кнопка на всю ширину */
+        width: 70%; /* Каждая кнопка на всю ширину */
         position: relative;
     }
     
@@ -448,8 +452,10 @@ header .icons img {
     /* Для очень маленьких экранов */
     @media (max-width: 500px) {
         .menu-layout {
-            flex-direction: column; /* Вертикально только на очень маленьких */
-            align-items: center;
+            flex-direction: row; /* Горизонтальное расположение */
+            align-items: flex-start; /* Выравнивание по верхнему краю */
+            justify-content: space-between; /* Распределение пространства между элементами */
+            gap: 5px;
         }
         
         .grave-image {
