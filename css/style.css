@@ -344,6 +344,32 @@ header .icons img {
     text-align: center;
 }
 
+.map {
+    padding: 5px;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.map p{
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 1.3rem;
+}
+
+.map h3{
+    text-align: center;
+    font-size: 5.2rem;
+    margin-bottom: 1rem;
+}
+
+.map iframe{
+    max-width: 200rem;
+    margin: 0 auto;
+    display: flex;           /* Добавляем flex */
+    align-items: center;     /* Центрируем по вертикали */
+    justify-content: center;
+}
+
 /* Добавьте в конец файла */
 
 /* Для планшетов и небольших ноутбуков */
@@ -455,7 +481,7 @@ header .icons img {
             flex-direction: row; /* Горизонтальное расположение */
             align-items: flex-start; /* Выравнивание по верхнему краю */
             justify-content: space-between; /* Распределение пространства между элементами */
-            gap: 5px;
+            gap: 10px;
         }
         
         .grave-image {
