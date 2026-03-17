@@ -474,6 +474,11 @@ header .icons img {
         min-width: 200px;
         z-index: 100;
     }
+
+    .map {
+        align-items: flex-start;
+        gap: 10;
+    }
     
     /* Для очень маленьких экранов */
     @media (max-width: 500px) {
